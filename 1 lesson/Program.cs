@@ -16,6 +16,20 @@ Console.WriteLine("\tADMIN MENU\n" +
                   "10. Розрахунок клієнта(друк чеку, прийом оплати)");
 Console.WriteLine("______________________________");
 
+Console.Write("your choice:");
+int choice = int.Parse(Console.ReadLine());
+
+switch (choice)
+{
+    case 1:
+        var item = new Pizza();
+        item.Name = Console.ReadLine();
+        item.Description = Console.ReadLine();
+        item.Price = double.Parse(Console.ReadLine());
+        item.size = double.Parse(Console.ReadLine());
+        break;  
+}
+
 public class Pizza
 {
     // властивості продукта

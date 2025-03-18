@@ -1,7 +1,34 @@
 ﻿Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 Console.Clear(); // очищення консолі
-List<Pizza> items = new();
+List<Pizza> items = new()
+{
+    new Pizza() { Name = "Margarita", Description = "Chesse, Tomato", Price = 12, size = 30},
+    new Pizza() { Name = "Myasna", Description = "Shynka, Salyami ", Price = 20, size = 40 }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 List<CustomPizza> itemss = new(); 
+
+
+
+
+
+
+
+
+
+
 while (true)
 {
     Console.Clear();
@@ -47,6 +74,21 @@ switch (choice)
     case 8:
             foreach (CustomPizza item in itemss)
                 item.Show();
+            break;
+
+   case 9:
+            Console.Write("Enter product name to search: ");
+            string name = Console.ReadLine();
+
+            // логіка пошуку продукта
+            var found = items.Find(x => x.Name == name);
+            if (found == null)
+            {
+                Console.WriteLine("Product not found!");
+                break;
+            }
+
+            found.Show();
             break;
 
 

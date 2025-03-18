@@ -1,6 +1,7 @@
 ﻿Console.OutputEncoding = System.Text.Encoding.UTF8; // для укр мови
 Console.Clear(); // очищення консолі
-Pizza lll = new Pizza();
+List<Pizza> items = new();
+List<CustomPizza> itemss = new(); 
 while (true)
 {
     Console.Clear();
@@ -26,17 +27,33 @@ int choice = int.Parse(Console.ReadLine());
 switch (choice)
 {
     case 1:
-        lll.AddPizza();
-        break;
+            Pizza newItem = new();
+            newItem.AddPizza();
+            items.Add(newItem);
+            break;
 
-
-        case 7:
-        lll.Show();     
+    case 2:
+            CustomPizza newItems = new();
+            newItems.AddPizza();
+            itemss.Add(newItems);
             break;
 
 
-}
+    case 7:
+            foreach (Pizza item in items)
+                item.Show();
+            break;
 
+    case 8:
+            foreach (CustomPizza item in itemss)
+                item.Show();
+            break;
+
+
+
+
+    }
+    Console.WriteLine("Натистінь щось для продовження...");
     Console.ReadKey();
 
 }
@@ -62,7 +79,9 @@ public class Pizza
         size = double.Parse(Console.ReadLine());
     }
     public void Show()
+
     {
+        Console.WriteLine("------ Pizza ------");
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine($"Description: {Description}$");
         Console.WriteLine($"Price: {Price}$");
@@ -78,7 +97,33 @@ public class CustomPizza : Pizza
 {
     public string NameClient { get; set; }
 
- 
+    public void AddPizza()
+    {
+        Console.Write("Enter name: ");
+        Name = Console.ReadLine();
+        Console.Write("Enter Description: ");
+        Description = Console.ReadLine();
+        Console.Write("Enter Price: ");
+        Price = double.Parse(Console.ReadLine());
+        Console.Write("Enter size: ");
+        size = double.Parse(Console.ReadLine());
+        Console.Write("Enter NameClient: ");
+        NameClient = (Console.ReadLine());
+
+    }
+    public void Show()
+
+    {
+        Console.WriteLine("------ Pizza ------");
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Description: {Description}$");
+        Console.WriteLine($"Price: {Price}$");
+        Console.WriteLine($"size: {size}%");
+        Console.WriteLine($"NameClient: {NameClient}%");
+
+    }
+
+
 }
 
 
